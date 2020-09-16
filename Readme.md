@@ -1,7 +1,7 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
 * Студент: [Артем Вафин](https://up.htmlacademy.ru/javascript/21/user/1394233).
-* Наставник: `Неизвестно`.
+* Наставник: [Никита Победоносцев](https://up.htmlacademy.ru/javascript/21/user/502263).
 
 ---
 
