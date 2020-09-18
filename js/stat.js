@@ -10,6 +10,12 @@ const renderCloud = function (ctx, color, x, y) {
 
 
 window.renderStatistics = function (ctx) {
-  renderCloud(ctx, `rgba(0, 0, 0, 0.7)`, 110, 20);
-  renderCloud(ctx, `#fff`, 100, 10);
+  renderCloud(ctx, "rgba(0, 0, 0, 0.7)", 110, 20);
+  renderCloud(ctx, "#fff", 100, 10);
+
+  ctx.fillStyle = "#000";
+  ctx.font = "16px PT Mono";
+  ctx.textBaseline = "hanging";
+  ctx.fillText("Ура вы победили!", 120, 30);
+  ctx.fillText("Список результатов:", 120, 50);
 };
