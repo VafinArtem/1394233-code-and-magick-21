@@ -8,6 +8,9 @@ const renderCloud = function (ctx, color, x, y) {
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
 };
 
+const textField = function (ctx, description, x, y) {
+  ctx.fillText(description, x, y);
+};
 
 window.renderStatistics = function (ctx) {
   renderCloud(ctx, "rgba(0, 0, 0, 0.7)", 110, 20);
@@ -16,6 +19,6 @@ window.renderStatistics = function (ctx) {
   ctx.fillStyle = "#000";
   ctx.font = "16px PT Mono";
   ctx.textBaseline = "hanging";
-  ctx.fillText("Ура вы победили!", 120, 30);
-  ctx.fillText("Список результатов:", 120, 50);
+  textField(ctx, "Ура вы победили!", 120, 30);
+  textField(ctx, "Список результатов:", 120, 50);
 };
