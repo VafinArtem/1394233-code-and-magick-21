@@ -50,6 +50,6 @@ window.renderStatistics = function (ctx, players, times) {
     ctx.fillStyle = "rgba(255, 0, 0, 1)";
     ctx.fillRect(CLOUD_X, CLOUD_Y + (GAP + BAR_WIDTH) * i, (barHeight * times[i]) / maxTime, BAR_WIDTH);
     ctx.restore();
-    textField(ctx, Math.round(times[i]), CLOUD_Y + (GAP + BAR_WIDTH) * i, (CLOUD_HEIGHT - FONT_GAP) - (barHeight * times[i]) / maxTime);
+    textField(ctx, Math.round(times[i]), CLOUD_Y + (GAP + BAR_WIDTH) * i, (CLOUD_HEIGHT - FONT_GAP * 2) - (barHeight * times[i]) / maxTime);
   }
 };
