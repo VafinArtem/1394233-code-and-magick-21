@@ -29,35 +29,49 @@ window.renderStatistics = function (ctx) {
   textField(ctx, "Ура вы победили!", 120, 30);
   textField(ctx, "Список результатов:", 120, 50);
 
-  textField(ctx, "Вы", CLOUD_Y, CLOUD_HEIGHT - FONT_GAP);
+  let playerIndex = 0;
+  let playerName = 'Вы';
+
+  textField(ctx, playerName, CLOUD_Y + (GAP + BAR_WIDTH) * playerIndex, CLOUD_HEIGHT - FONT_GAP);
   ctx.save();
   ctx.translate(0, CLOUD_HEIGHT);
   ctx.rotate(-Math.PI / 2);
   ctx.fillStyle = "rgba(255, 0, 0, 1)";
-  ctx.fillRect(CLOUD_X, CLOUD_Y, barHeight, BAR_WIDTH);
+  ctx.fillRect(CLOUD_X, CLOUD_Y + (GAP + BAR_WIDTH) * playerIndex, barHeight, BAR_WIDTH);
   ctx.restore();
 
-  textField(ctx, "Кекс", CLOUD_Y + (GAP + BAR_WIDTH) * 1, CLOUD_HEIGHT - FONT_GAP);
+  playerIndex = 1;
+  playerName = 'Кекс';
+
+  textField(ctx, playerName, CLOUD_Y + (GAP + BAR_WIDTH) * playerIndex, CLOUD_HEIGHT - FONT_GAP);
   ctx.save();
   ctx.translate(0, CLOUD_HEIGHT);
   ctx.rotate(-Math.PI / 2);
   ctx.fillStyle = "#000";
-  ctx.fillRect(CLOUD_X, CLOUD_Y + (GAP + BAR_WIDTH) * 1, barHeight, BAR_WIDTH);
+  ctx.fillRect(CLOUD_X, CLOUD_Y + (GAP + BAR_WIDTH) * playerIndex, barHeight, BAR_WIDTH);
   ctx.restore();
 
-  textField(ctx, "Катя", CLOUD_Y + (GAP + BAR_WIDTH) * 2, CLOUD_HEIGHT - FONT_GAP);
+  playerIndex = 2;
+  playerName = 'Катя';
+
+  textField(ctx, playerName, CLOUD_Y + (GAP + BAR_WIDTH) * playerIndex, CLOUD_HEIGHT - FONT_GAP
+  );
   ctx.save();
   ctx.translate(0, CLOUD_HEIGHT);
   ctx.rotate(-Math.PI / 2);
   ctx.fillStyle = "#000";
-  ctx.fillRect(CLOUD_X, CLOUD_Y + (GAP + BAR_WIDTH) * 2, barHeight, BAR_WIDTH);
+  ctx.fillRect(CLOUD_X, CLOUD_Y + (GAP + BAR_WIDTH) * playerIndex, barHeight, BAR_WIDTH);
   ctx.restore();
 
-  textField(ctx, "Игорь", CLOUD_Y + (GAP + BAR_WIDTH) * 3, CLOUD_HEIGHT - FONT_GAP);
+  playerIndex = 3;
+  playerName = 'Игорь';
+
+  textField(ctx, playerName, CLOUD_Y + (GAP + BAR_WIDTH) * playerIndex, CLOUD_HEIGHT - FONT_GAP
+  );
   ctx.save();
   ctx.translate(0, CLOUD_HEIGHT);
   ctx.rotate(-Math.PI / 2);
   ctx.fillStyle = "#000";
-  ctx.fillRect(CLOUD_X, CLOUD_Y + (GAP + BAR_WIDTH) * 3, barHeight, BAR_WIDTH);
+  ctx.fillRect(CLOUD_X, CLOUD_Y + (GAP + BAR_WIDTH) * playerIndex, barHeight, BAR_WIDTH);
   ctx.restore();
 };
