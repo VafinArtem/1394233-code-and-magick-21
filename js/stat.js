@@ -33,31 +33,31 @@ window.renderStatistics = function (ctx) {
   ctx.save();
   ctx.translate(0, CLOUD_HEIGHT);
   ctx.rotate(-Math.PI / 2);
-  ctx.fillStyle = "#000";
+  ctx.fillStyle = "rgba(255, 0, 0, 1)";
   ctx.fillRect(CLOUD_X, CLOUD_Y, barHeight, BAR_WIDTH);
   ctx.restore();
 
-  textField(ctx, "Кекс", CLOUD_Y + GAP + BAR_WIDTH, CLOUD_HEIGHT - FONT_GAP);
+  textField(ctx, "Кекс", CLOUD_Y + (GAP + BAR_WIDTH) * 1, CLOUD_HEIGHT - FONT_GAP);
   ctx.save();
   ctx.translate(0, CLOUD_HEIGHT);
   ctx.rotate(-Math.PI / 2);
   ctx.fillStyle = "#000";
-  ctx.fillRect(CLOUD_X, CLOUD_Y + GAP + BAR_WIDTH, barHeight, BAR_WIDTH);
+  ctx.fillRect(CLOUD_X, CLOUD_Y + (GAP + BAR_WIDTH) * 1, barHeight, BAR_WIDTH);
   ctx.restore();
 
-  textField(ctx, "Катя", CLOUD_Y + GAP + BAR_WIDTH + GAP + BAR_WIDTH, CLOUD_HEIGHT - FONT_GAP);
+  textField(ctx, "Катя", CLOUD_Y + (GAP + BAR_WIDTH) * 2, CLOUD_HEIGHT - FONT_GAP);
   ctx.save();
   ctx.translate(0, CLOUD_HEIGHT);
   ctx.rotate(-Math.PI / 2);
   ctx.fillStyle = "#000";
-  ctx.fillRect(CLOUD_X, CLOUD_Y + GAP + BAR_WIDTH + GAP + BAR_WIDTH, barHeight, BAR_WIDTH);
+  ctx.fillRect(CLOUD_X, CLOUD_Y + (GAP + BAR_WIDTH) * 2, barHeight, BAR_WIDTH);
   ctx.restore();
 
-  textField(ctx, "Игорь", CLOUD_Y + GAP + BAR_WIDTH + GAP + BAR_WIDTH + GAP + BAR_WIDTH, CLOUD_HEIGHT - FONT_GAP);
+  textField(ctx, "Игорь", CLOUD_Y + (GAP + BAR_WIDTH) * 3, CLOUD_HEIGHT - FONT_GAP);
   ctx.save();
   ctx.translate(0, CLOUD_HEIGHT);
   ctx.rotate(-Math.PI / 2);
   ctx.fillStyle = "#000";
-  ctx.fillRect(CLOUD_X, CLOUD_Y + GAP + BAR_WIDTH + GAP + BAR_WIDTH + GAP + BAR_WIDTH, barHeight, BAR_WIDTH);
+  ctx.fillRect(CLOUD_X, CLOUD_Y + (GAP + BAR_WIDTH) * 3, barHeight, BAR_WIDTH);
   ctx.restore();
 };
