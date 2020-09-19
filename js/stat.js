@@ -2,6 +2,13 @@
 
 const CLOUD_WIDTH = 420;
 const CLOUD_HEIGHT = 270;
+const CLOUD_X = 30;
+const CLOUD_Y = 140;
+const GAP = 50;
+const FONT_GAP = 20;
+const TEXT_HEIGHT = 16;
+const BAR_WIDTH = 40;
+const barHeight = CLOUD_HEIGHT - GAP - TEXT_HEIGHT - GAP;
 
 const renderCloud = function (ctx, color, x, y) {
   ctx.fillStyle = color;
@@ -22,11 +29,19 @@ window.renderStatistics = function (ctx) {
   textField(ctx, "Ура вы победили!", 120, 30);
   textField(ctx, "Список результатов:", 120, 50);
 
-  textField(ctx, "Вы", 140, CLOUD_HEIGHT - 20);
+  textField(ctx, "Вы", CLOUD_Y, CLOUD_HEIGHT - FONT_GAP);
   ctx.save();
   ctx.translate(0, CLOUD_HEIGHT);
   ctx.rotate(-Math.PI / 2);
   ctx.fillStyle = "#000";
-  ctx.fillRect(30, 140, 110, 40);
+  ctx.fillRect(CLOUD_X, CLOUD_Y, barHeight, BAR_WIDTH);
+  ctx.restore();
+
+  textField(ctx, "Кекс", CLOUD_Y + GAP + BAR_WIDTH, CLOUD_HEIGHT - FONT_GAP);
+  ctx.save();
+  ctx.translate(0, CLOUD_HEIGHT);
+  ctx.rotate(-Math.PI / 2);
+  ctx.fillStyle = "#000";
+  ctx.fillRect(CLOUD_X, CLOUD_Y + GAP + BAR_WIDTH, barHeight, BAR_WIDTH);
   ctx.restore();
 };
