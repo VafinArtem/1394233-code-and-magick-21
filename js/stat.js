@@ -21,4 +21,12 @@ window.renderStatistics = function (ctx) {
   ctx.textBaseline = "hanging";
   textField(ctx, "Ура вы победили!", 120, 30);
   textField(ctx, "Список результатов:", 120, 50);
+
+  textField(ctx, "Вы", 140, CLOUD_HEIGHT - 20);
+  ctx.save();
+  ctx.translate(0, CLOUD_HEIGHT);
+  ctx.rotate(-Math.PI / 2);
+  ctx.fillStyle = "#000";
+  ctx.fillRect(30, 140, 110, 40);
+  ctx.restore();
 };
