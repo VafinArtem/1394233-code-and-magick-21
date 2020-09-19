@@ -19,7 +19,7 @@ const textField = function (ctx, description, x, y) {
   ctx.fillText(description, x, y);
 };
 
-window.renderStatistics = function (ctx) {
+window.renderStatistics = function (ctx, players) {
   renderCloud(ctx, "rgba(0, 0, 0, 0.7)", 110, 20);
   renderCloud(ctx, "#fff", 100, 10);
 
@@ -28,8 +28,6 @@ window.renderStatistics = function (ctx) {
   ctx.textBaseline = "hanging";
   textField(ctx, "Ура вы победили!", 120, 30);
   textField(ctx, "Список результатов:", 120, 50);
-
-  let players = ["Вы", "Кекс", "Катя", "Игорь"]
 
   for (let i = 0; i < players.length; i++) {
     textField(ctx, players[i], CLOUD_Y + (GAP + BAR_WIDTH) * i, CLOUD_HEIGHT - FONT_GAP);
