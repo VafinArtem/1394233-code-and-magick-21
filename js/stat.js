@@ -29,49 +29,15 @@ window.renderStatistics = function (ctx) {
   textField(ctx, "Ура вы победили!", 120, 30);
   textField(ctx, "Список результатов:", 120, 50);
 
-  let playerIndex = 0;
-  let playerName = 'Вы';
+  let players = ["Вы", "Кекс", "Катя", "Игорь"]
 
-  textField(ctx, playerName, CLOUD_Y + (GAP + BAR_WIDTH) * playerIndex, CLOUD_HEIGHT - FONT_GAP);
-  ctx.save();
-  ctx.translate(0, CLOUD_HEIGHT);
-  ctx.rotate(-Math.PI / 2);
-  ctx.fillStyle = "rgba(255, 0, 0, 1)";
-  ctx.fillRect(CLOUD_X, CLOUD_Y + (GAP + BAR_WIDTH) * playerIndex, barHeight, BAR_WIDTH);
-  ctx.restore();
-
-  playerIndex = 1;
-  playerName = 'Кекс';
-
-  textField(ctx, playerName, CLOUD_Y + (GAP + BAR_WIDTH) * playerIndex, CLOUD_HEIGHT - FONT_GAP);
-  ctx.save();
-  ctx.translate(0, CLOUD_HEIGHT);
-  ctx.rotate(-Math.PI / 2);
-  ctx.fillStyle = "#000";
-  ctx.fillRect(CLOUD_X, CLOUD_Y + (GAP + BAR_WIDTH) * playerIndex, barHeight, BAR_WIDTH);
-  ctx.restore();
-
-  playerIndex = 2;
-  playerName = 'Катя';
-
-  textField(ctx, playerName, CLOUD_Y + (GAP + BAR_WIDTH) * playerIndex, CLOUD_HEIGHT - FONT_GAP
-  );
-  ctx.save();
-  ctx.translate(0, CLOUD_HEIGHT);
-  ctx.rotate(-Math.PI / 2);
-  ctx.fillStyle = "#000";
-  ctx.fillRect(CLOUD_X, CLOUD_Y + (GAP + BAR_WIDTH) * playerIndex, barHeight, BAR_WIDTH);
-  ctx.restore();
-
-  playerIndex = 3;
-  playerName = 'Игорь';
-
-  textField(ctx, playerName, CLOUD_Y + (GAP + BAR_WIDTH) * playerIndex, CLOUD_HEIGHT - FONT_GAP
-  );
-  ctx.save();
-  ctx.translate(0, CLOUD_HEIGHT);
-  ctx.rotate(-Math.PI / 2);
-  ctx.fillStyle = "#000";
-  ctx.fillRect(CLOUD_X, CLOUD_Y + (GAP + BAR_WIDTH) * playerIndex, barHeight, BAR_WIDTH);
-  ctx.restore();
+  for (let i = 0; i < players.length; i++) {
+    textField(ctx, players[i], CLOUD_Y + (GAP + BAR_WIDTH) * i, CLOUD_HEIGHT - FONT_GAP);
+    ctx.save();
+    ctx.translate(0, CLOUD_HEIGHT);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = "rgba(255, 0, 0, 1)";
+    ctx.fillRect(CLOUD_X, CLOUD_Y + (GAP + BAR_WIDTH) * i, barHeight, BAR_WIDTH);
+    ctx.restore();
+  }
 };
