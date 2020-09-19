@@ -9,6 +9,8 @@ const FONT_GAP = 20;
 const TEXT_HEIGHT = 10;
 const BAR_WIDTH = 40;
 const barHeight = CLOUD_HEIGHT - GAP - TEXT_HEIGHT - GAP;
+const PLAYER_COLOR = "rgba(255, 0, 0, 1)";
+const PLAYERS_COLOR = ["rgba(255, 50, 0, 1)", "rgba(255, 255, 0, 1)", "rgba(255, 255, 150, 1)", "rgba(255, 100, 100, 1)"];
 
 const renderCloud = function (ctx, color, x, y) {
   ctx.fillStyle = color;
@@ -47,7 +49,11 @@ window.renderStatistics = function (ctx, players, times) {
     ctx.save();
     ctx.translate(0, CLOUD_HEIGHT);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = "rgba(255, 0, 0, 1)";
+    if (players[i] === "Вы") {
+      ctx.fillStyle = PLAYER_COLOR;
+    } else {
+      ctx.fillStyle = PLAYERS_COLOR[i];
+    }
     ctx.fillRect(CLOUD_X, CLOUD_Y + (GAP + BAR_WIDTH) * i, (barHeight * times[i]) / maxTime, BAR_WIDTH);
     ctx.restore();
     textField(ctx, Math.round(times[i]), CLOUD_Y + (GAP + BAR_WIDTH) * i, (CLOUD_HEIGHT - FONT_GAP * 2) - (barHeight * times[i]) / maxTime);
