@@ -39,7 +39,7 @@ window.renderStatistics = function (ctx, players, times) {
     ctx.save();
     ctx.translate(0, cloud.HEIGHT);
     ctx.rotate(-Math.PI / 2);
-    ctx.fillStyle = players[i] === `Вы` ? PLAYER_COLOR : `hsla(240,` + Math.floor(Math.random() * 100) + `%, 50%, 1)`;
+    ctx.fillStyle = players[i] === `Вы` ? PLAYER_COLOR : `hsla(240, ${Math.floor(Math.random() * 100)}%, 50%, 1)`;
     ctx.fillRect(cloud.X, cloud.Y + (COLUMN_GAP + BAR_WIDTH) * i, (barHeight * times[i]) / maxTime, BAR_WIDTH);
     ctx.restore();
     textField(ctx, Math.round(times[i]), cloud.Y + (COLUMN_GAP + BAR_WIDTH) * i, (cloud.HEIGHT - FONT_GAP * 2) - (barHeight * times[i]) / maxTime);
