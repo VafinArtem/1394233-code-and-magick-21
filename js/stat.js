@@ -20,17 +20,6 @@ const textField = function (ctx, description, x, y) {
   ctx.fillText(description, x, y);
 };
 
-let getMaxElement = function (arr) {
-  let maxElement = arr[0];
-
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] > maxElement) {
-      maxElement = arr[i];
-    }
-  }
-  return maxElement;
-};
-
 window.renderStatistics = function (ctx, players, times) {
   renderCloud(ctx, "rgba(0, 0, 0, 0.7)", 110, 20);
   renderCloud(ctx, "#fff", 100, 10);
@@ -41,7 +30,7 @@ window.renderStatistics = function (ctx, players, times) {
   textField(ctx, "Ура вы победили!", 120, 30);
   textField(ctx, "Список результатов:", 120, 50);
 
-  let maxTime = getMaxElement(times);
+  const maxTime = Math.max(...times);
 
   for (let i = 0; i < players.length; i++) {
     textField(ctx, players[i], CLOUD_Y + (GAP + BAR_WIDTH) * i, CLOUD_HEIGHT - FONT_GAP);
