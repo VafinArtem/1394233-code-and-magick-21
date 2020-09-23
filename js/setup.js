@@ -9,7 +9,7 @@ const NAMES = [
   `Виктор`,
   `Юлия`,
   `Люпита`,
-  `Вашингтон`,
+  `Вашингтон`
 ];
 const SURNAMES = [
   `да Марья`,
@@ -45,6 +45,28 @@ setup.classList.remove(`hidden`);
 // coatColor, строка — случайный цвет мантии на выбор из следующих:
 // eyesColor, строка — случайный цвет глаз персонажа на выбор из следующих:
 
+const wizards = [
+  {
+    name: NAMES[Math.floor(Math.random() * NAMES.length)] + SURNAMES[Math.floor(Math.random() * SURNAMES.length)],
+    coatColor: COAT_COLOR[Math.floor(Math.random() * COAT_COLOR.length)],
+    eyesColor: EYES_COLOR[Math.floor(Math.random() * EYES_COLOR.length)]
+  },
+  {
+    name: NAMES[Math.floor(Math.random() * NAMES.length)] + SURNAMES[Math.floor(Math.random() * SURNAMES.length)],
+    coatColor: COAT_COLOR[Math.floor(Math.random() * COAT_COLOR.length)],
+    eyesColor: EYES_COLOR[Math.floor(Math.random() * EYES_COLOR.length)]
+  },
+  {
+    name: NAMES[Math.floor(Math.random() * NAMES.length)] + SURNAMES[Math.floor(Math.random() * SURNAMES.length)],
+    coatColor: COAT_COLOR[Math.floor(Math.random() * COAT_COLOR.length)],
+    eyesColor: EYES_COLOR[Math.floor(Math.random() * EYES_COLOR.length)]
+  },
+  {
+    name: NAMES[Math.floor(Math.random() * NAMES.length)] + SURNAMES[Math.floor(Math.random() * SURNAMES.length)],
+    coatColor: COAT_COLOR[Math.floor(Math.random() * COAT_COLOR.length)],
+    eyesColor: EYES_COLOR[Math.floor(Math.random() * EYES_COLOR.length)]
+  }
+];
 
 // 3 На основе данных, созданных в предыдущем пункте и шаблона #similar - wizard - template создайте DOM - элементы, соответствующие случайно сгенерированным волшебникам, и заполните их данными из массива:
 // имя персонажа name запишите как текст в блок.setup - similar - label;
