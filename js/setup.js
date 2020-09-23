@@ -51,32 +51,29 @@ const wizards = [
     eyesColor: EYES_COLOR[Math.floor(Math.random() * EYES_COLOR.length)]
   },
   {
-    name: NAMES[Math.floor(Math.random() * NAMES.length)] + SURNAMES[Math.floor(Math.random() * SURNAMES.length)],
+    name: NAMES[Math.floor(Math.random() * NAMES.length)] + ` ` + SURNAMES[Math.floor(Math.random() * SURNAMES.length)],
     coatColor: COAT_COLOR[Math.floor(Math.random() * COAT_COLOR.length)],
     eyesColor: EYES_COLOR[Math.floor(Math.random() * EYES_COLOR.length)]
   },
   {
-    name: NAMES[Math.floor(Math.random() * NAMES.length)] + SURNAMES[Math.floor(Math.random() * SURNAMES.length)],
+    name: NAMES[Math.floor(Math.random() * NAMES.length)] + ` ` + SURNAMES[Math.floor(Math.random() * SURNAMES.length)],
     coatColor: COAT_COLOR[Math.floor(Math.random() * COAT_COLOR.length)],
     eyesColor: EYES_COLOR[Math.floor(Math.random() * EYES_COLOR.length)]
   },
   {
-    name: NAMES[Math.floor(Math.random() * NAMES.length)] + SURNAMES[Math.floor(Math.random() * SURNAMES.length)],
+    name: NAMES[Math.floor(Math.random() * NAMES.length)] + ` ` + SURNAMES[Math.floor(Math.random() * SURNAMES.length)],
     coatColor: COAT_COLOR[Math.floor(Math.random() * COAT_COLOR.length)],
     eyesColor: EYES_COLOR[Math.floor(Math.random() * EYES_COLOR.length)]
   }
 ];
 
-// 3 На основе данных, созданных в предыдущем пункте и шаблона #similar - wizard - template создайте DOM - элементы, соответствующие случайно
-// сгенерированным волшебникам, и заполните их данными из массива:
-// имя персонажа name запишите как текст в блок.setup - similar - label;
-// цвет мантии coatColor задайте как цвет заливки fill в стилях элемента.wizard - coat;
-// цвет глаз eyesColor задайте как цвет заливки fill в стилях элемента.wizard - eyes.
-
-// 4 Отрисуйте сгенерированные DOM - элементы в блок.setup - similar - list.Для вставки элементов используйте DocumentFragment.
-
 for (let i = 0; i < wizards.length; i++) {
   let wizardElement = similarWizardsTemplate.cloneNode(true);
+
+  wizardElement.querySelector(`.setup-similar-label`).textContent = wizards[i].name;
+  wizardElement.querySelector(`.wizard-coat`).style.fill = wizards[i].coatColor;
+  wizardElement.querySelector(`.wizard-eyes`).style.fill = wizards[i].eyesColor;
+
   simirarWizardsList.appendChild(wizardElement);
 }
 
@@ -87,4 +84,10 @@ for (let i = 0; i < wizards.length; i++) {
 // а из массива фамилий фамилию и сложить их.При желании имя и фамилию можно в случайном порядке менять местами:
 // coatColor, строка — случайный цвет мантии на выбор из следующих:
 // eyesColor, строка — случайный цвет глаз персонажа на выбор из следующих:
+// 4 Отрисуйте сгенерированные DOM - элементы в блок.setup - similar - list.Для вставки элементов используйте DocumentFragment.
 // 5 Покажите блок.setup - similar, удалив у него CSS - класс hidden.
+// 3 На основе данных, созданных в предыдущем пункте и шаблона #similar - wizard - template создайте DOM - элементы, соответствующие случайно
+// сгенерированным волшебникам, и заполните их данными из массива:
+// имя персонажа name запишите как текст в блок.setup - similar - label;
+// цвет мантии coatColor задайте как цвет заливки fill в стилях элемента.wizard - coat;
+// цвет глаз eyesColor задайте как цвет заливки fill в стилях элемента.wizard - eyes.
