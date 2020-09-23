@@ -35,7 +35,7 @@ const EYES_COLORS = [
   `yellow`,
   `green`
 ];
-const PLAYERS_AMOUNT = 4;
+const HEROES_AMOUNT = 4;
 
 const setupNode = document.querySelector(`.setup`);
 const similarWizards = setupNode.querySelector(`.setup-similar`);
@@ -80,10 +80,21 @@ const createElement = function (wizard) {
     fragment.appendChild(renderWizard(wizard[i]));
   }
 
-  return similarWizardsList.appendChild(fragment);
+  return fragment;
 };
 
-createElement(createDataArray(PLAYERS_AMOUNT));
+const addElement = function (element) {
+  similarWizardsList.appendChild(element);
+};
 
-showElement(setupNode);
-showElement(similarWizards);
+const initWizardScreen = function () {
+  const wizardsDataArray = createDataArray(HEROES_AMOUNT);
+  const wizardNodesFragment = createElement(wizardsDataArray);
+
+  addElement(wizardNodesFragment);
+
+  showElement(setupNode);
+  showElement(similarWizards);
+};
+
+initWizardScreen();
