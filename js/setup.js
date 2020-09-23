@@ -38,7 +38,7 @@ const EYES_COLOR = [
 
 const setup = document.querySelector(`.setup`);
 const similarWizards = setup.querySelector(`.setup-similar`);
-const simirarWizardsList = setup.querySelector(`.setup-similar-list`);
+const similarWizardsList = setup.querySelector(`.setup-similar-list`);
 const similarWizardsTemplate = document.querySelector(`#similar-wizard-template`).content.querySelector(`.setup-similar-item`);
 
 setup.classList.remove(`hidden`);
@@ -68,7 +68,7 @@ const wizards = [
     name: getRandomData(NAMES) + ` ` + getRandomData(SURNAMES),
     coatColor: getRandomData(COAT_COLOR),
     eyesColor: getRandomData(EYES_COLOR)
-  },
+  }
 ];
 
 const renderWizard = function (wizard) {
@@ -80,10 +80,13 @@ const renderWizard = function (wizard) {
   return wizardElement;
 };
 
-const fragment = document.createDocumentFragment();
+const createElement = function (wizard) {
+  const fragment = document.createDocumentFragment();
+  for (let i = 0; i < wizard.length; i++) {
+    fragment.appendChild(renderWizard(wizard[i]));
+  }
+  similarWizardsList.appendChild(fragment);
+  return;
+};
 
-for (let i = 0; i < wizards.length; i++) {
-  fragment.appendChild(renderWizard(wizards[i]));
-}
-
-simirarWizardsList.appendChild(fragment);
+createElement(wizards);
