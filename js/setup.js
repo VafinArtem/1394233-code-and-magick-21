@@ -1,7 +1,10 @@
 "use strict";
-// 1 Покажите блок.setup, убрав в JS - коде у него класс hidden.
+
 const setup = document.querySelector(`.setup`);
-const changeWizards = setup.querySelector(`.setup-similar`);
+const similarWizards = setup.querySelector(`.setup-similar`);
+const simirarWizardsList = setup.querySelector(`.setup-similar-list`);
+const similarWizardsTemplate = document.querySelector(`#similar-wizard-template`).content.querySelector(`.setup-similar-item`);
+
 const NAMES = [
   `Иван`,
   `Хуан Себастьян`,
@@ -39,13 +42,7 @@ const EYES_COLOR = [
 ];
 
 setup.classList.remove(`hidden`);
-changeWizards.classList.remove(`hidden`);
-
-// 2 Создайте массив, состоящий из 4 - х сгенерированных JS объектов, которые будут описывать похожих персонажей.Объекты должны содержать следующие поля:
-// name, строка — случайно сгенерированное имя персонажа.Имя генерируется из массивов имён и фамилий: нужно случайным образом выбрать из массива имён имя,
-// а из массива фамилий фамилию и сложить их.При желании имя и фамилию можно в случайном порядке менять местами:
-// coatColor, строка — случайный цвет мантии на выбор из следующих:
-// eyesColor, строка — случайный цвет глаз персонажа на выбор из следующих:
+similarWizards.classList.remove(`hidden`);
 
 const wizards = [
   {
@@ -78,4 +75,12 @@ const wizards = [
 
 // 4 Отрисуйте сгенерированные DOM - элементы в блок.setup - similar - list.Для вставки элементов используйте DocumentFragment.
 
+
+// ГОТОВО:
+// 1 Покажите блок.setup, убрав в JS - коде у него класс hidden.
+// 2 Создайте массив, состоящий из 4 - х сгенерированных JS объектов, которые будут описывать похожих персонажей.Объекты должны содержать следующие поля:
+// name, строка — случайно сгенерированное имя персонажа.Имя генерируется из массивов имён и фамилий: нужно случайным образом выбрать из массива имён имя,
+// а из массива фамилий фамилию и сложить их.При желании имя и фамилию можно в случайном порядке менять местами:
+// coatColor, строка — случайный цвет мантии на выбор из следующих:
+// eyesColor, строка — случайный цвет глаз персонажа на выбор из следующих:
 // 5 Покажите блок.setup - similar, удалив у него CSS - класс hidden.
