@@ -75,6 +75,10 @@ const wizards = [
 
 // 4 Отрисуйте сгенерированные DOM - элементы в блок.setup - similar - list.Для вставки элементов используйте DocumentFragment.
 
+for (let i = 0; i < wizards.length; i++) {
+  let wizardElement = similarWizardsTemplate.cloneNode(true);
+  simirarWizardsList.appendChild(wizardElement);
+}
 
 // ГОТОВО:
 // 1 Покажите блок.setup, убрав в JS - коде у него класс hidden.
