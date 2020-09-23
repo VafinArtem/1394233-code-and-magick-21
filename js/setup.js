@@ -40,7 +40,6 @@ const setup = document.querySelector(`.setup`);
 const similarWizards = setup.querySelector(`.setup-similar`);
 const simirarWizardsList = setup.querySelector(`.setup-similar-list`);
 const similarWizardsTemplate = document.querySelector(`#similar-wizard-template`).content.querySelector(`.setup-similar-item`);
-const fragment = document.createDocumentFragment();
 
 setup.classList.remove(`hidden`);
 similarWizards.classList.remove(`hidden`);
@@ -81,29 +80,10 @@ const renderWizard = function (wizard) {
   return wizardElement;
 };
 
+const fragment = document.createDocumentFragment();
+
 for (let i = 0; i < wizards.length; i++) {
   fragment.appendChild(renderWizard(wizards[i]));
 }
 
 simirarWizardsList.appendChild(fragment);
-
-
-// ГОТОВО:
-// 1 Покажите блок.setup, убрав в JS - коде у него класс hidden.
-// 2 Создайте массив, состоящий из 4 - х сгенерированных JS объектов, которые будут описывать похожих персонажей.Объекты должны содержать следующие поля:
-// name, строка — случайно сгенерированное имя персонажа.Имя генерируется из массивов имён и фамилий: нужно случайным образом выбрать из массива имён имя,
-// а из массива фамилий фамилию и сложить их.При желании имя и фамилию можно в случайном порядке менять местами:
-// coatColor, строка — случайный цвет мантии на выбор из следующих:
-// eyesColor, строка — случайный цвет глаз персонажа на выбор из следующих:
-// 4 Отрисуйте сгенерированные DOM - элементы в блок.setup - similar - list.Для вставки элементов используйте DocumentFragment.
-// 5 Покажите блок.setup - similar, удалив у него CSS - класс hidden.
-// 3 На основе данных, созданных в предыдущем пункте и шаблона #similar - wizard - template создайте DOM - элементы, соответствующие случайно
-// сгенерированным волшебникам, и заполните их данными из массива:
-// имя персонажа name запишите как текст в блок.setup - similar - label;
-// цвет мантии coatColor задайте как цвет заливки fill в стилях элемента.wizard - coat;
-// цвет глаз eyesColor задайте как цвет заливки fill в стилях элемента.wizard - eyes.
-// Код должен быть разделён на отдельные функции.
-
-// Стоит отдельно объявить функцию генерации случайных данных, функцию создания DOM-элемента на основе JS-объекта, функцию заполнения блока DOM-элементами на основе массива JS-объектов.
-
-// Пункты задания примерно соответствуют функциям, которые вы должны создать.
