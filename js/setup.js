@@ -35,6 +35,7 @@ const EYES_COLOR = [
   `yellow`,
   `green`
 ];
+const NUMBER_PLAYERS = 4;
 
 const setup = document.querySelector(`.setup`);
 const similarWizards = setup.querySelector(`.setup-similar`);
@@ -49,28 +50,20 @@ const getRandomData = function (name) {
   return name[Math.floor(Math.random() * name.length)];
 };
 
-const wizards = [
-  {
-    name: getRandomData(NAMES) + ` ` + getRandomData(SURNAMES),
-    coatColor: getRandomData(COAT_COLOR),
-    eyesColor: getRandomData(EYES_COLOR)
-  },
-  {
-    name: getRandomData(NAMES) + ` ` + getRandomData(SURNAMES),
-    coatColor: getRandomData(COAT_COLOR),
-    eyesColor: getRandomData(EYES_COLOR)
-  },
-  {
-    name: getRandomData(NAMES) + ` ` + getRandomData(SURNAMES),
-    coatColor: getRandomData(COAT_COLOR),
-    eyesColor: getRandomData(EYES_COLOR)
-  },
-  {
-    name: getRandomData(NAMES) + ` ` + getRandomData(SURNAMES),
-    coatColor: getRandomData(COAT_COLOR),
-    eyesColor: getRandomData(EYES_COLOR)
+const createArray = function (numbers) {
+  const array = [];
+  for (let i = 0; i < numbers; i++) {
+    array.push(
+        {
+          name: `${getRandomData(NAMES)} ${getRandomData(SURNAMES)}`,
+          coatColor: getRandomData(COAT_COLOR),
+          eyesColor: getRandomData(EYES_COLOR)
+        }
+    );
   }
-];
+
+  return array;
+};
 
 const renderWizard = function (wizard) {
   let wizardElement = similarWizardsTemplate.cloneNode(true);
@@ -90,12 +83,7 @@ const createElement = function (wizard) {
   return similarWizardsList.appendChild(fragment);
 };
 
-createElement(wizards);
+createElement(createArray(NUMBER_PLAYERS));
 
 showElement(setup);
 showElement(similarWizards);
-
-
-// - функцию, которая принимает массив данных и возвращает фрагмент со всеми магами
-// - функцию init, которая генерит массив данных
-// ГОТОВО: снимет классы hidden, добавляет фрагмент в верстку, генерит фрагмент
