@@ -4,6 +4,7 @@ const setup = document.querySelector(`.setup`);
 const similarWizards = setup.querySelector(`.setup-similar`);
 const simirarWizardsList = setup.querySelector(`.setup-similar-list`);
 const similarWizardsTemplate = document.querySelector(`#similar-wizard-template`).content.querySelector(`.setup-similar-item`);
+const fragment = document.createDocumentFragment();
 
 const NAMES = [
   `Иван`,
@@ -68,24 +69,23 @@ const wizards = [
     name: random(NAMES) + ` ` + random(SURNAMES),
     coatColor: random(COAT_COLOR),
     eyesColor: random(EYES_COLOR)
-  }
+  },
 ];
 
-for (let i = 0; i < wizards.length; i++) {
+const renderWizard = function (wizard) {
   let wizardElement = similarWizardsTemplate.cloneNode(true);
+  wizardElement.querySelector(`.setup-similar-label`).textContent = wizard.name;
+  wizardElement.querySelector(`.wizard-coat`).style.fill = wizard.coatColor;
+  wizardElement.querySelector(`.wizard-eyes`).style.fill = wizard.eyesColor;
 
-  wizardElement.querySelector(`.setup-similar-label`).textContent = wizards[i].name;
-  wizardElement.querySelector(`.wizard-coat`).style.fill = wizards[i].coatColor;
-  wizardElement.querySelector(`.wizard-eyes`).style.fill = wizards[i].eyesColor;
+  return wizardElement;
+};
 
-  simirarWizardsList.appendChild(wizardElement);
+for (let i = 0; i < wizards.length; i++) {
+  fragment.appendChild(renderWizard(wizards[i]));
 }
 
-// Код должен быть разделён на отдельные функции.
-
-// Стоит отдельно объявить функцию генерации случайных данных, функцию создания DOM-элемента на основе JS-объекта, функцию заполнения блока DOM-элементами на основе массива JS-объектов.
-
-// Пункты задания примерно соответствуют функциям, которые вы должны создать.
+simirarWizardsList.appendChild(fragment);
 
 
 // ГОТОВО:
@@ -102,3 +102,8 @@ for (let i = 0; i < wizards.length; i++) {
 // имя персонажа name запишите как текст в блок.setup - similar - label;
 // цвет мантии coatColor задайте как цвет заливки fill в стилях элемента.wizard - coat;
 // цвет глаз eyesColor задайте как цвет заливки fill в стилях элемента.wizard - eyes.
+// Код должен быть разделён на отдельные функции.
+
+// Стоит отдельно объявить функцию генерации случайных данных, функцию создания DOM-элемента на основе JS-объекта, функцию заполнения блока DOM-элементами на основе массива JS-объектов.
+
+// Пункты задания примерно соответствуют функциям, которые вы должны создать.
