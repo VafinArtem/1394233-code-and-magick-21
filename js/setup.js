@@ -41,8 +41,12 @@ const similarWizards = setup.querySelector(`.setup-similar`);
 const similarWizardsList = setup.querySelector(`.setup-similar-list`);
 const similarWizardsTemplate = document.querySelector(`#similar-wizard-template`).content.querySelector(`.setup-similar-item`);
 
-setup.classList.remove(`hidden`);
-similarWizards.classList.remove(`hidden`);
+// setup.classList.remove(`hidden`);
+// similarWizards.classList.remove(`hidden`);
+
+const showElement = function (element) {
+  element.classList.remove(`hidden`);
+};
 
 const getRandomData = function (name) {
   return name[Math.floor(Math.random() * name.length)];
@@ -90,6 +94,9 @@ const createElement = function (wizard) {
 };
 
 createElement(wizards);
+
+showElement(setup);
+showElement(similarWizards);
 
 
 // - функцию, которая принимает массив данных и возвращает фрагмент со всеми магами
