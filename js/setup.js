@@ -44,26 +44,30 @@ const EYES_COLOR = [
 setup.classList.remove(`hidden`);
 similarWizards.classList.remove(`hidden`);
 
+const random = function (name) {
+  return name[Math.floor(Math.random() * name.length)];
+};
+
 const wizards = [
   {
-    name: NAMES[Math.floor(Math.random() * NAMES.length)] + ` ` + SURNAMES[Math.floor(Math.random() * SURNAMES.length)],
-    coatColor: COAT_COLOR[Math.floor(Math.random() * COAT_COLOR.length)],
-    eyesColor: EYES_COLOR[Math.floor(Math.random() * EYES_COLOR.length)]
+    name: random(NAMES) + ` ` + random(SURNAMES),
+    coatColor: random(COAT_COLOR),
+    eyesColor: random(EYES_COLOR)
   },
   {
-    name: NAMES[Math.floor(Math.random() * NAMES.length)] + ` ` + SURNAMES[Math.floor(Math.random() * SURNAMES.length)],
-    coatColor: COAT_COLOR[Math.floor(Math.random() * COAT_COLOR.length)],
-    eyesColor: EYES_COLOR[Math.floor(Math.random() * EYES_COLOR.length)]
+    name: random(NAMES) + ` ` + random(SURNAMES),
+    coatColor: random(COAT_COLOR),
+    eyesColor: random(EYES_COLOR)
   },
   {
-    name: NAMES[Math.floor(Math.random() * NAMES.length)] + ` ` + SURNAMES[Math.floor(Math.random() * SURNAMES.length)],
-    coatColor: COAT_COLOR[Math.floor(Math.random() * COAT_COLOR.length)],
-    eyesColor: EYES_COLOR[Math.floor(Math.random() * EYES_COLOR.length)]
+    name: random(NAMES) + ` ` + random(SURNAMES),
+    coatColor: random(COAT_COLOR),
+    eyesColor: random(EYES_COLOR)
   },
   {
-    name: NAMES[Math.floor(Math.random() * NAMES.length)] + ` ` + SURNAMES[Math.floor(Math.random() * SURNAMES.length)],
-    coatColor: COAT_COLOR[Math.floor(Math.random() * COAT_COLOR.length)],
-    eyesColor: EYES_COLOR[Math.floor(Math.random() * EYES_COLOR.length)]
+    name: random(NAMES) + ` ` + random(SURNAMES),
+    coatColor: random(COAT_COLOR),
+    eyesColor: random(EYES_COLOR)
   }
 ];
 
@@ -76,6 +80,13 @@ for (let i = 0; i < wizards.length; i++) {
 
   simirarWizardsList.appendChild(wizardElement);
 }
+
+// Код должен быть разделён на отдельные функции.
+
+// Стоит отдельно объявить функцию генерации случайных данных, функцию создания DOM-элемента на основе JS-объекта, функцию заполнения блока DOM-элементами на основе массива JS-объектов.
+
+// Пункты задания примерно соответствуют функциям, которые вы должны создать.
+
 
 // ГОТОВО:
 // 1 Покажите блок.setup, убрав в JS - коде у него класс hidden.
