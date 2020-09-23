@@ -45,30 +45,30 @@ const EYES_COLOR = [
 setup.classList.remove(`hidden`);
 similarWizards.classList.remove(`hidden`);
 
-const random = function (name) {
+const getRandomData = function (name) {
   return name[Math.floor(Math.random() * name.length)];
 };
 
 const wizards = [
   {
-    name: random(NAMES) + ` ` + random(SURNAMES),
-    coatColor: random(COAT_COLOR),
-    eyesColor: random(EYES_COLOR)
+    name: getRandomData(NAMES) + ` ` + getRandomData(SURNAMES),
+    coatColor: getRandomData(COAT_COLOR),
+    eyesColor: getRandomData(EYES_COLOR)
   },
   {
-    name: random(NAMES) + ` ` + random(SURNAMES),
-    coatColor: random(COAT_COLOR),
-    eyesColor: random(EYES_COLOR)
+    name: getRandomData(NAMES) + ` ` + getRandomData(SURNAMES),
+    coatColor: getRandomData(COAT_COLOR),
+    eyesColor: getRandomData(EYES_COLOR)
   },
   {
-    name: random(NAMES) + ` ` + random(SURNAMES),
-    coatColor: random(COAT_COLOR),
-    eyesColor: random(EYES_COLOR)
+    name: getRandomData(NAMES) + ` ` + getRandomData(SURNAMES),
+    coatColor: getRandomData(COAT_COLOR),
+    eyesColor: getRandomData(EYES_COLOR)
   },
   {
-    name: random(NAMES) + ` ` + random(SURNAMES),
-    coatColor: random(COAT_COLOR),
-    eyesColor: random(EYES_COLOR)
+    name: getRandomData(NAMES) + ` ` + getRandomData(SURNAMES),
+    coatColor: getRandomData(COAT_COLOR),
+    eyesColor: getRandomData(EYES_COLOR)
   },
 ];
 
