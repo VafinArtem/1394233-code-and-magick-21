@@ -1,6 +1,7 @@
 "use strict";
 // 1 Покажите блок.setup, убрав в JS - коде у него класс hidden.
 const setup = document.querySelector(`.setup`);
+const changeWizards = setup.querySelector(`.setup-similar`);
 const NAMES = [
   `Иван`,
   `Хуан Себастьян`,
@@ -38,6 +39,7 @@ const EYES_COLOR = [
 ];
 
 setup.classList.remove(`hidden`);
+changeWizards.classList.remove(`hidden`);
 
 // 2 Создайте массив, состоящий из 4 - х сгенерированных JS объектов, которые будут описывать похожих персонажей.Объекты должны содержать следующие поля:
 // name, строка — случайно сгенерированное имя персонажа.Имя генерируется из массивов имён и фамилий: нужно случайным образом выбрать из массива имён имя,
@@ -47,7 +49,7 @@ setup.classList.remove(`hidden`);
 
 const wizards = [
   {
-    name: NAMES[Math.floor(Math.random() * NAMES.length)] + SURNAMES[Math.floor(Math.random() * SURNAMES.length)],
+    name: NAMES[Math.floor(Math.random() * NAMES.length)] + ` ` + SURNAMES[Math.floor(Math.random() * SURNAMES.length)],
     coatColor: COAT_COLOR[Math.floor(Math.random() * COAT_COLOR.length)],
     eyesColor: EYES_COLOR[Math.floor(Math.random() * EYES_COLOR.length)]
   },
@@ -68,7 +70,8 @@ const wizards = [
   }
 ];
 
-// 3 На основе данных, созданных в предыдущем пункте и шаблона #similar - wizard - template создайте DOM - элементы, соответствующие случайно сгенерированным волшебникам, и заполните их данными из массива:
+// 3 На основе данных, созданных в предыдущем пункте и шаблона #similar - wizard - template создайте DOM - элементы, соответствующие случайно
+// сгенерированным волшебникам, и заполните их данными из массива:
 // имя персонажа name запишите как текст в блок.setup - similar - label;
 // цвет мантии coatColor задайте как цвет заливки fill в стилях элемента.wizard - coat;
 // цвет глаз eyesColor задайте как цвет заливки fill в стилях элемента.wizard - eyes.
