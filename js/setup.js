@@ -1,11 +1,5 @@
 "use strict";
 
-const setup = document.querySelector(`.setup`);
-const similarWizards = setup.querySelector(`.setup-similar`);
-const simirarWizardsList = setup.querySelector(`.setup-similar-list`);
-const similarWizardsTemplate = document.querySelector(`#similar-wizard-template`).content.querySelector(`.setup-similar-item`);
-const fragment = document.createDocumentFragment();
-
 const NAMES = [
   `Иван`,
   `Хуан Себастьян`,
@@ -41,6 +35,12 @@ const EYES_COLOR = [
   `yellow`,
   `green`
 ];
+
+const setup = document.querySelector(`.setup`);
+const similarWizards = setup.querySelector(`.setup-similar`);
+const simirarWizardsList = setup.querySelector(`.setup-similar-list`);
+const similarWizardsTemplate = document.querySelector(`#similar-wizard-template`).content.querySelector(`.setup-similar-item`);
+const fragment = document.createDocumentFragment();
 
 setup.classList.remove(`hidden`);
 similarWizards.classList.remove(`hidden`);
