@@ -20,7 +20,7 @@ const SURNAMES = [
   `Нионго`,
   `Ирвинг`
 ];
-const COAT_COLOR = [
+const COATS_COLORS = [
   `rgb(101, 137, 164)`,
   `rgb(241, 43, 107)`,
   `rgb(146, 100, 161)`,
@@ -28,36 +28,36 @@ const COAT_COLOR = [
   `rgb(215, 210, 55)`,
   `rgb(0, 0, 0)`,
 ];
-const EYES_COLOR = [
+const EYES_COLORS = [
   `black`,
   `red`,
   `blue`,
   `yellow`,
   `green`
 ];
-const NUMBER_PLAYERS = 4;
+const PLAYERS_AMOUNT = 4;
 
-const setup = document.querySelector(`.setup`);
-const similarWizards = setup.querySelector(`.setup-similar`);
-const similarWizardsList = setup.querySelector(`.setup-similar-list`);
+const setupNode = document.querySelector(`.setup`);
+const similarWizards = setupNode.querySelector(`.setup-similar`);
+const similarWizardsList = setupNode.querySelector(`.setup-similar-list`);
 const similarWizardsTemplate = document.querySelector(`#similar-wizard-template`).content.querySelector(`.setup-similar-item`);
 
 const showElement = function (element) {
   element.classList.remove(`hidden`);
 };
 
-const getRandomData = function (name) {
-  return name[Math.floor(Math.random() * name.length)];
+const getRandomData = function (arrayName) {
+  return arrayName[Math.floor(Math.random() * arrayName.length)];
 };
 
-const createArray = function (numbers) {
+const createDataArray = function (numbers) {
   const array = [];
   for (let i = 0; i < numbers; i++) {
     array.push(
         {
           name: `${getRandomData(NAMES)} ${getRandomData(SURNAMES)}`,
-          coatColor: getRandomData(COAT_COLOR),
-          eyesColor: getRandomData(EYES_COLOR)
+          coatColor: getRandomData(COATS_COLORS),
+          eyesColor: getRandomData(EYES_COLORS)
         }
     );
   }
@@ -83,7 +83,7 @@ const createElement = function (wizard) {
   return similarWizardsList.appendChild(fragment);
 };
 
-createElement(createArray(NUMBER_PLAYERS));
+createElement(createDataArray(PLAYERS_AMOUNT));
 
-showElement(setup);
+showElement(setupNode);
 showElement(similarWizards);
