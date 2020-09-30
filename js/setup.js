@@ -35,6 +35,13 @@ const EYES_COLORS = [
   `yellow`,
   `green`
 ];
+const FIREBALL_COLORS = [
+  `#ee4830`,
+  `#30a8ee`,
+  `#5ce6c0`,
+  `#e848d5`,
+  `#e6e848`
+];
 const HEROES_AMOUNT = 4;
 
 const setupNode = document.querySelector(`.setup`);
@@ -44,6 +51,8 @@ const wizardCoat = setupNode.querySelector(`.wizard-coat`);
 const wizardCoatInput = setupNode.querySelector(`input[name="coat-color"]`);
 const wizardEyes = setupNode.querySelector(`.wizard-eyes`);
 const wizardEyesInput = setupNode.querySelector(`input[name="eyes-color"]`);
+const fireBall = setupNode.querySelector(`.setup-fireball-wrap`);
+const fireBallInput = fireBall.querySelector(`input[name="fireball-color"]`);
 const userNameSetup = setupNode.querySelector(`.setup-user-name`);
 const similarWizards = setupNode.querySelector(`.setup-similar`);
 const similarWizardsList = setupNode.querySelector(`.setup-similar-list`);
@@ -77,6 +86,11 @@ const openPopup = function () {
   wizardEyes.addEventListener(`click`, function () {
     const colorEyes = wizardEyes.style.fill = getRandomData(EYES_COLORS);
     wizardEyesInput.value = colorEyes;
+  });
+
+  fireBall.addEventListener(`click`, function () {
+    const colorFireball = fireBall.style.backgroundColor = getRandomData(FIREBALL_COLORS);
+    fireBallInput.value = colorFireball;
   });
 };
 
