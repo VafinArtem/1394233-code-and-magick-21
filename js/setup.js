@@ -66,7 +66,7 @@ const getRandomArrElement = function (arrayName) {
 };
 
 const onPopupEscPress = function (evt) {
-  if (evt.key === `Escape`) {
+  if (evt.key === `Escape` && document.activeElement !== userNameSetup) {
     evt.preventDefault();
     closePopup();
   }
@@ -76,16 +76,6 @@ const changeElementColor = function (element, input, styleProperty, colorsArray)
   const color = getRandomArrElement(colorsArray);
   element.style[styleProperty] = color;
   input.value = color;
-};
-
-const getFocusOnInput = function () {
-  userNameSetup.addEventListener(`focus`, function () {
-    document.removeEventListener(`keydown`, onPopupEscPress);
-  });
-
-  userNameSetup.addEventListener(`blur`, function () {
-    document.addEventListener(`keydown`, onPopupEscPress);
-  });
 };
 
 const openPopup = function () {
@@ -104,8 +94,6 @@ const openPopup = function () {
   Wizard.fireBall.addEventListener(`click`, function () {
     changeElementColor(Wizard.fireBall, Wizard.fireBallInput, `backgroundColor`, FIREBALL_COLORS);
   });
-
-  getFocusOnInput();
 };
 
 const closePopup = function () {
