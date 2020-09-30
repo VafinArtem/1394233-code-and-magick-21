@@ -61,15 +61,20 @@ const Wizard = {
   fireBallInput: setupNode.querySelector(`input[name="fireball-color"]`)
 };
 
-const getRandomArrElement = function (arrayName) {
-  return arrayName[Math.floor(Math.random() * arrayName.length)];
+const KeyboardKeys = {
+  ESCAPE: `Escape`,
+  ENTER: `Enter`
 };
 
 const onPopupEscPress = function (evt) {
-  if (evt.key === `Escape` && document.activeElement !== userNameSetup) {
+  if (evt.key === KeyboardKeys.ESCAPE && document.activeElement !== userNameSetup) {
     evt.preventDefault();
     closePopup();
   }
+};
+
+const getRandomArrElement = function (arrayName) {
+  return arrayName[Math.floor(Math.random() * arrayName.length)];
 };
 
 const changeElementColor = function (element, input, styleProperty, colorsArray) {
@@ -153,7 +158,7 @@ const initWizardScreen = function () {
 setupOpenButton.addEventListener(`click`, openPopup);
 
 setupOpenButton.addEventListener(`keydown`, function (evt) {
-  if (evt.key === `Enter`) {
+  if (evt.key === KeyboardKeys.ENTER) {
     openPopup();
   }
 });
@@ -161,7 +166,7 @@ setupOpenButton.addEventListener(`keydown`, function (evt) {
 setupCloseButton.addEventListener(`click`, closePopup);
 
 setupCloseButton.addEventListener(`keydown`, function (evt) {
-  if (evt.key === `Enter`) {
+  if (evt.key === KeyboardKeys.ENTER) {
     setupNode.classList.add(`hidden`);
   }
 });
