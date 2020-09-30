@@ -47,16 +47,19 @@ const HEROES_AMOUNT = 4;
 const setupNode = document.querySelector(`.setup`);
 const setupOpenButton = document.querySelector(`.setup-open`);
 const setupCloseButton = setupNode.querySelector(`.setup-close`);
-const wizardCoat = setupNode.querySelector(`.wizard-coat`);
-const wizardCoatInput = setupNode.querySelector(`input[name="coat-color"]`);
-const wizardEyes = setupNode.querySelector(`.wizard-eyes`);
-const wizardEyesInput = setupNode.querySelector(`input[name="eyes-color"]`);
-const fireBall = setupNode.querySelector(`.setup-fireball-wrap`);
-const fireBallInput = fireBall.querySelector(`input[name="fireball-color"]`);
 const userNameSetup = setupNode.querySelector(`.setup-user-name`);
 const similarWizards = setupNode.querySelector(`.setup-similar`);
 const similarWizardsList = setupNode.querySelector(`.setup-similar-list`);
 const similarWizardsTemplate = document.querySelector(`#similar-wizard-template`).content.querySelector(`.setup-similar-item`);
+
+const Wizard = {
+  coat: setupNode.querySelector(`.wizard-coat`),
+  coatInput: setupNode.querySelector(`input[name="coat-color"]`),
+  eyes: setupNode.querySelector(`.wizard-eyes`),
+  eyesInput: setupNode.querySelector(`input[name="eyes-color"]`),
+  fireBall: setupNode.querySelector(`.setup-fireball-wrap`),
+  fireBallInput: setupNode.querySelector(`input[name="fireball-color"]`)
+};
 
 const getRandomArrElement = function (arrayName) {
   return arrayName[Math.floor(Math.random() * arrayName.length)];
@@ -85,28 +88,24 @@ const getFocusOnInput = function () {
   });
 };
 
-const changeColorWizardOnClick = function () {
-  wizardCoat.addEventListener(`click`, function () {
-    changeColorElement(wizardCoat, wizardCoatInput, `fill`, COATS_COLORS);
-  });
-
-  wizardEyes.addEventListener(`click`, function () {
-    changeColorElement(wizardEyes, wizardEyesInput, `fill`, EYES_COLORS);
-  });
-
-  fireBall.addEventListener(`click`, function () {
-    changeColorElement(fireBall, fireBallInput, `backgroundColor`, FIREBALL_COLORS);
-  });
-};
-
 const openPopup = function () {
   setupNode.classList.remove(`hidden`);
 
   document.addEventListener(`keydown`, onPopupEscPress);
 
-  getFocusOnInput();
+  Wizard.coat.addEventListener(`click`, function () {
+    changeColorElement(Wizard.coat, Wizard.coatInput, `fill`, COATS_COLORS);
+  });
 
-  changeColorWizardOnClick();
+  Wizard.eyes.addEventListener(`click`, function () {
+    changeColorElement(Wizard.eyes, Wizard.eyesInput, `fill`, EYES_COLORS);
+  });
+
+  Wizard.fireBall.addEventListener(`click`, function () {
+    changeColorElement(Wizard.fireBall, Wizard.fireBallInput, `backgroundColor`, FIREBALL_COLORS);
+  });
+
+  getFocusOnInput();
 };
 
 const closePopup = function () {
