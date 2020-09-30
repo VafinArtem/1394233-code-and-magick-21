@@ -45,11 +45,6 @@ const similarWizards = setupNode.querySelector(`.setup-similar`);
 const similarWizardsList = setupNode.querySelector(`.setup-similar-list`);
 const similarWizardsTemplate = document.querySelector(`#similar-wizard-template`).content.querySelector(`.setup-similar-item`);
 
-// Открытие/закрытие окна настройки персонажа:
-
-// Если диалог открыт, нажатие на кнопку «Сохранить» приводит к отправке формы.
-// Если диалог открыт и фокус находится на кнопке «Сохранить», нажатие на ENTER приводит к отправке формы.
-
 const onPopupEscPress = function (evt) {
   if (evt.key === `Escape`) {
     evt.preventDefault();
