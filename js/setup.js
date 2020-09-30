@@ -38,8 +38,10 @@ const EYES_COLORS = [
 const HEROES_AMOUNT = 4;
 
 const setupNode = document.querySelector(`.setup`);
-const setupOpen = document.querySelector(`.setup-open`);
-const setupClose = setupNode.querySelector(`.setup-close`);
+const setupOpenButton = document.querySelector(`.setup-open`);
+const setupCloseButton = setupNode.querySelector(`.setup-close`);
+const wizardCoat = setupNode.querySelector(`.wizard-coat`);
+const wizardCoatInput = setupNode.querySelector(`input[name="coat-color"]`);
 const userNameSetup = setupNode.querySelector(`.setup-user-name`);
 const similarWizards = setupNode.querySelector(`.setup-similar`);
 const similarWizardsList = setupNode.querySelector(`.setup-similar-list`);
@@ -64,6 +66,11 @@ const openPopup = function () {
   userNameSetup.addEventListener(`blur`, function () {
     document.addEventListener(`keydown`, onPopupEscPress);
   });
+
+  wizardCoat.addEventListener(`click`, function () {
+    const colorCoat = wizardCoat.style.fill = getRandomData(COATS_COLORS);
+    wizardCoatInput.value = colorCoat;
+  });
 };
 
 const closePopup = function () {
@@ -72,25 +79,35 @@ const closePopup = function () {
   document.removeEventListener(`keydown`, onPopupEscPress);
 };
 
-setupOpen.addEventListener(`click`, function () {
+setupOpenButton.addEventListener(`click`, function () {
   openPopup();
 });
 
-setupOpen.addEventListener(`keydown`, function (evt) {
+setupOpenButton.addEventListener(`keydown`, function (evt) {
   if (evt.key === `Enter`) {
     openPopup();
   }
 });
 
-setupClose.addEventListener(`click`, function () {
+setupCloseButton.addEventListener(`click`, function () {
   closePopup();
 });
 
-setupClose.addEventListener(`keydown`, function (evt) {
+setupCloseButton.addEventListener(`keydown`, function (evt) {
   if (evt.key === `Enter`) {
     setupNode.classList.add(`hidden`);
   }
 });
+
+// Изменение цвета мантии персонажа по нажатию. Цвет мантии .setup-wizard .wizard-coat должен обновляться по нажатию на неё.
+// Цвет мантии задаётся через изменение инлайнового CSS-свойства fill для элемента. Цвет должен сменяться произвольным образом на один из следующих цветов:
+
+// rgb (101, 137, 164)
+// rgb (241, 43, 107)
+// rgb (146, 100, 161)
+// rgb (56, 159, 117)
+// rgb (215, 210, 55)
+// rgb (0, 0, 0)
 
 const showElement = function (element) {
   element.classList.remove(`hidden`);
