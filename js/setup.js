@@ -57,26 +57,23 @@ const similarWizardsTemplate = document.querySelector(`#similar-wizard-template`
 // Если диалог открыт, нажатие на кнопку «Сохранить» приводит к отправке формы.
 // Если диалог открыт и фокус находится на кнопке «Сохранить», нажатие на ENTER приводит к отправке формы.
 
+const onPopupEscPress = function (evt) {
+  if (evt.key === `Escape`) {
+    evt.preventDefault();
+    closePopup();
+  }
+};
+
 const openPopup = function () {
   setupNode.classList.remove(`hidden`);
 
-  document.addEventListener(`keydown`, function (evt) {
-    if (evt.key === `Escape`) {
-      evt.preventDefault();
-      setupNode.classList.add(`hidden`);
-    }
-  });
+  document.addEventListener(`keydown`, onPopupEscPress);
 };
 
 const closePopup = function () {
   setupNode.classList.add(`hidden`);
 
-  document.removeEventListener(`keydown`, function (evt) {
-    if (evt.key === `Escape`) {
-      evt.preventDefault();
-      setupNode.classList.add(`hidden`);
-    }
-  });
+  document.removeEventListener(`keydown`, onPopupEscPress);
 };
 
 setupOpen.addEventListener(`click`, function () {
