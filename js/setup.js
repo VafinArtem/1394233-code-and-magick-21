@@ -75,11 +75,7 @@ const changeColorElement = function (element, input, styleProperty, colorsArray)
   input.value = color;
 };
 
-const openPopup = function () {
-  setupNode.classList.remove(`hidden`);
-
-  document.addEventListener(`keydown`, onPopupEscPress);
-
+const getFocusOnInput = function () {
   userNameSetup.addEventListener(`focus`, function () {
     document.removeEventListener(`keydown`, onPopupEscPress);
   });
@@ -87,7 +83,9 @@ const openPopup = function () {
   userNameSetup.addEventListener(`blur`, function () {
     document.addEventListener(`keydown`, onPopupEscPress);
   });
+};
 
+const changeColorWizardOnClick = function () {
   wizardCoat.addEventListener(`click`, function () {
     changeColorElement(wizardCoat, wizardCoatInput, `fill`, COATS_COLORS);
   });
@@ -101,31 +99,21 @@ const openPopup = function () {
   });
 };
 
+const openPopup = function () {
+  setupNode.classList.remove(`hidden`);
+
+  document.addEventListener(`keydown`, onPopupEscPress);
+
+  getFocusOnInput();
+
+  changeColorWizardOnClick();
+};
+
 const closePopup = function () {
   setupNode.classList.add(`hidden`);
 
   document.removeEventListener(`keydown`, onPopupEscPress);
 };
-
-setupOpenButton.addEventListener(`click`, function () {
-  openPopup();
-});
-
-setupOpenButton.addEventListener(`keydown`, function (evt) {
-  if (evt.key === `Enter`) {
-    openPopup();
-  }
-});
-
-setupCloseButton.addEventListener(`click`, function () {
-  closePopup();
-});
-
-setupCloseButton.addEventListener(`keydown`, function (evt) {
-  if (evt.key === `Enter`) {
-    setupNode.classList.add(`hidden`);
-  }
-});
 
 const showElement = function (element) {
   element.classList.remove(`hidden`);
@@ -174,5 +162,25 @@ const initWizardScreen = function () {
 
   showElement(similarWizards);
 };
+
+setupOpenButton.addEventListener(`click`, function () {
+  openPopup();
+});
+
+setupOpenButton.addEventListener(`keydown`, function (evt) {
+  if (evt.key === `Enter`) {
+    openPopup();
+  }
+});
+
+setupCloseButton.addEventListener(`click`, function () {
+  closePopup();
+});
+
+setupCloseButton.addEventListener(`keydown`, function (evt) {
+  if (evt.key === `Enter`) {
+    setupNode.classList.add(`hidden`);
+  }
+});
 
 initWizardScreen();
