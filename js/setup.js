@@ -58,11 +58,21 @@ const similarWizards = setupNode.querySelector(`.setup-similar`);
 const similarWizardsList = setupNode.querySelector(`.setup-similar-list`);
 const similarWizardsTemplate = document.querySelector(`#similar-wizard-template`).content.querySelector(`.setup-similar-item`);
 
+const getRandomArrElement = function (arrayName) {
+  return arrayName[Math.floor(Math.random() * arrayName.length)];
+};
+
 const onPopupEscPress = function (evt) {
   if (evt.key === `Escape`) {
     evt.preventDefault();
     closePopup();
   }
+};
+
+const changeColorElement = function (element, input, styleProperty, colorsArray) {
+  const color = getRandomArrElement(colorsArray);
+  element.style[styleProperty] = color;
+  input.value = color;
 };
 
 const openPopup = function () {
@@ -79,18 +89,15 @@ const openPopup = function () {
   });
 
   wizardCoat.addEventListener(`click`, function () {
-    const colorCoat = wizardCoat.style.fill = getRandomData(COATS_COLORS);
-    wizardCoatInput.value = colorCoat;
+    changeColorElement(wizardCoat, wizardCoatInput, `fill`, COATS_COLORS);
   });
 
   wizardEyes.addEventListener(`click`, function () {
-    const colorEyes = wizardEyes.style.fill = getRandomData(EYES_COLORS);
-    wizardEyesInput.value = colorEyes;
+    changeColorElement(wizardEyes, wizardEyesInput, `fill`, EYES_COLORS);
   });
 
   fireBall.addEventListener(`click`, function () {
-    const colorFireball = fireBall.style.backgroundColor = getRandomData(FIREBALL_COLORS);
-    fireBallInput.value = colorFireball;
+    changeColorElement(fireBall, fireBallInput, `backgroundColor`, FIREBALL_COLORS);
   });
 };
 
@@ -120,22 +127,17 @@ setupCloseButton.addEventListener(`keydown`, function (evt) {
   }
 });
 
-
 const showElement = function (element) {
   element.classList.remove(`hidden`);
-};
-
-const getRandomData = function (arrayName) {
-  return arrayName[Math.floor(Math.random() * arrayName.length)];
 };
 
 const createDataArray = function (numbers) {
   const array = [];
   for (let i = 0; i < numbers; i++) {
     array.push({
-      name: `${getRandomData(NAMES)} ${getRandomData(SURNAMES)}`,
-      coatColor: getRandomData(COATS_COLORS),
-      eyesColor: getRandomData(EYES_COLORS)
+      name: `${getRandomArrElement(NAMES)} ${getRandomArrElement(SURNAMES)}`,
+      coatColor: getRandomArrElement(COATS_COLORS),
+      eyesColor: getRandomArrElement(EYES_COLORS)
     });
   }
 
@@ -170,7 +172,6 @@ const initWizardScreen = function () {
 
   addElement(wizardNodesFragment);
 
-  // showElement(setupNode);
   showElement(similarWizards);
 };
 
