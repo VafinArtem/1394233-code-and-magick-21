@@ -72,7 +72,7 @@ const onPopupEscPress = function (evt) {
   }
 };
 
-const changeColorElement = function (element, input, styleProperty, colorsArray) {
+const changeElementColor = function (element, input, styleProperty, colorsArray) {
   const color = getRandomArrElement(colorsArray);
   element.style[styleProperty] = color;
   input.value = color;
@@ -94,15 +94,15 @@ const openPopup = function () {
   document.addEventListener(`keydown`, onPopupEscPress);
 
   Wizard.coat.addEventListener(`click`, function () {
-    changeColorElement(Wizard.coat, Wizard.coatInput, `fill`, COATS_COLORS);
+    changeElementColor(Wizard.coat, Wizard.coatInput, `fill`, COATS_COLORS);
   });
 
   Wizard.eyes.addEventListener(`click`, function () {
-    changeColorElement(Wizard.eyes, Wizard.eyesInput, `fill`, EYES_COLORS);
+    changeElementColor(Wizard.eyes, Wizard.eyesInput, `fill`, EYES_COLORS);
   });
 
   Wizard.fireBall.addEventListener(`click`, function () {
-    changeColorElement(Wizard.fireBall, Wizard.fireBallInput, `backgroundColor`, FIREBALL_COLORS);
+    changeElementColor(Wizard.fireBall, Wizard.fireBallInput, `backgroundColor`, FIREBALL_COLORS);
   });
 
   getFocusOnInput();
