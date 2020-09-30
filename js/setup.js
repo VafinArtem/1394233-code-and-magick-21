@@ -68,8 +68,20 @@ setupOpen.addEventListener(`click`, function () {
   });
 });
 
+setupOpen.addEventListener(`keydown`, function (evt) {
+  if (evt.key === `Enter`) {
+    showElement(setupNode);
+  }
+});
+
 setupClose.addEventListener(`click`, function () {
   setupNode.classList.add(`hidden`);
+});
+
+setupClose.addEventListener(`keydown`, function (evt) {
+  if (evt.key === `Enter`) {
+    setupNode.classList.add(`hidden`);
+  }
 });
 
 const showElement = function (element) {
