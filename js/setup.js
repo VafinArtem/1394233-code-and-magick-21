@@ -150,9 +150,7 @@ const initWizardScreen = function () {
   showElement(similarWizards);
 };
 
-setupOpenButton.addEventListener(`click`, function () {
-  openPopup();
-});
+setupOpenButton.addEventListener(`click`, openPopup);
 
 setupOpenButton.addEventListener(`keydown`, function (evt) {
   if (evt.key === `Enter`) {
@@ -160,9 +158,7 @@ setupOpenButton.addEventListener(`keydown`, function (evt) {
   }
 });
 
-setupCloseButton.addEventListener(`click`, function () {
-  closePopup();
-});
+setupCloseButton.addEventListener(`click`, closePopup);
 
 setupCloseButton.addEventListener(`keydown`, function (evt) {
   if (evt.key === `Enter`) {
