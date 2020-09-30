@@ -42,6 +42,8 @@ const setupOpenButton = document.querySelector(`.setup-open`);
 const setupCloseButton = setupNode.querySelector(`.setup-close`);
 const wizardCoat = setupNode.querySelector(`.wizard-coat`);
 const wizardCoatInput = setupNode.querySelector(`input[name="coat-color"]`);
+const wizardEyes = setupNode.querySelector(`.wizard-eyes`);
+const wizardEyesInput = setupNode.querySelector(`input[name="eyes-color"]`);
 const userNameSetup = setupNode.querySelector(`.setup-user-name`);
 const similarWizards = setupNode.querySelector(`.setup-similar`);
 const similarWizardsList = setupNode.querySelector(`.setup-similar-list`);
@@ -71,6 +73,11 @@ const openPopup = function () {
     const colorCoat = wizardCoat.style.fill = getRandomData(COATS_COLORS);
     wizardCoatInput.value = colorCoat;
   });
+
+  wizardEyes.addEventListener(`click`, function () {
+    const colorEyes = wizardEyes.style.fill = getRandomData(EYES_COLORS);
+    wizardEyesInput.value = colorEyes;
+  });
 };
 
 const closePopup = function () {
@@ -99,15 +106,6 @@ setupCloseButton.addEventListener(`keydown`, function (evt) {
   }
 });
 
-// Изменение цвета мантии персонажа по нажатию. Цвет мантии .setup-wizard .wizard-coat должен обновляться по нажатию на неё.
-// Цвет мантии задаётся через изменение инлайнового CSS-свойства fill для элемента. Цвет должен сменяться произвольным образом на один из следующих цветов:
-
-// rgb (101, 137, 164)
-// rgb (241, 43, 107)
-// rgb (146, 100, 161)
-// rgb (56, 159, 117)
-// rgb (215, 210, 55)
-// rgb (0, 0, 0)
 
 const showElement = function (element) {
   element.classList.remove(`hidden`);
