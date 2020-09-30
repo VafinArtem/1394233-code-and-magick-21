@@ -40,20 +40,13 @@ const HEROES_AMOUNT = 4;
 const setupNode = document.querySelector(`.setup`);
 const setupOpen = document.querySelector(`.setup-open`);
 const setupClose = setupNode.querySelector(`.setup-close`);
+const userNameSetup = setupNode.querySelector(`.setup-user-name`);
 const similarWizards = setupNode.querySelector(`.setup-similar`);
 const similarWizardsList = setupNode.querySelector(`.setup-similar-list`);
 const similarWizardsTemplate = document.querySelector(`#similar-wizard-template`).content.querySelector(`.setup-similar-item`);
 
 // Открытие/закрытие окна настройки персонажа:
 
-// Окно .setup должно открываться по нажатию на блок .setup-open. Открытие окна производится удалением класса hidden у блока.
-// Окно .setup должно закрываться по нажатию на элемент .setup-close, расположенный внутри окна.
-// Добавьте обработчики для альтернативного ввода с клавиатуры keydown для кнопок открытия/закрытия диалога настройки персонажа:
-// Когда иконка пользователя в фокусе .setup-open-icon, то окно настройки персонажа должно открываться по нажатию кнопки ENTER
-// Не забудьте добавить tabindex="0" для иконки пользователя, чтобы она фокусировалась.
-// Когда окно настройки персонажа открыто, нажатие на клавишу ESC должно закрывать диалог.
-// Если фокус находится на форме ввода имени, то окно закрываться не должно.
-// Если окно открыто и фокус находится на кнопке закрытия окна, то нажатие клавиши ENTER должно приводить к закрытию диалога.
 // Если диалог открыт, нажатие на кнопку «Сохранить» приводит к отправке формы.
 // Если диалог открыт и фокус находится на кнопке «Сохранить», нажатие на ENTER приводит к отправке формы.
 
@@ -68,6 +61,14 @@ const openPopup = function () {
   setupNode.classList.remove(`hidden`);
 
   document.addEventListener(`keydown`, onPopupEscPress);
+
+  userNameSetup.addEventListener(`focus`, function () {
+    document.removeEventListener(`keydown`, onPopupEscPress);
+  });
+
+  userNameSetup.addEventListener(`blur`, function () {
+    document.addEventListener(`keydown`, onPopupEscPress);
+  });
 };
 
 const closePopup = function () {
