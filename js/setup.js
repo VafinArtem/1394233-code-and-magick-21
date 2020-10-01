@@ -53,12 +53,12 @@ const similarWizardsList = setupNode.querySelector(`.setup-similar-list`);
 const similarWizardsTemplate = document.querySelector(`#similar-wizard-template`).content.querySelector(`.setup-similar-item`);
 
 const Wizard = {
-  coat: setupNode.querySelector(`.wizard-coat`),
-  coatInput: setupNode.querySelector(`input[name="coat-color"]`),
-  eyes: setupNode.querySelector(`.wizard-eyes`),
-  eyesInput: setupNode.querySelector(`input[name="eyes-color"]`),
-  fireBall: setupNode.querySelector(`.setup-fireball-wrap`),
-  fireBallInput: setupNode.querySelector(`input[name="fireball-color"]`)
+  COAT: setupNode.querySelector(`.wizard-coat`),
+  COAT_INPUT: setupNode.querySelector(`input[name="coat-color"]`),
+  EYES: setupNode.querySelector(`.wizard-eyes`),
+  EYES_INPUT: setupNode.querySelector(`input[name="eyes-color"]`),
+  FIREBALL: setupNode.querySelector(`.setup-fireball-wrap`),
+  FIREBALL_INPUT: setupNode.querySelector(`input[name="fireball-color"]`)
 };
 
 const KeyboardKeys = {
@@ -73,6 +73,18 @@ const onPopupEscPress = function (evt) {
   }
 };
 
+const onWizardCoatClick = function () {
+  changeElementColor(Wizard.COAT, Wizard.COAT_INPUT, `fill`, COATS_COLORS);
+};
+
+const onWizardEyesClick = function () {
+  changeElementColor(Wizard.EYES, Wizard.EYES_INPUT, `fill`, EYES_COLORS);
+};
+
+const onWizardFireballClick = function () {
+  changeElementColor(Wizard.FIREBALL, Wizard.FIREBALL_INPUT, `background-color`, FIREBALL_COLORS);
+};
+
 const getRandomArrElement = function (arrayName) {
   return arrayName[Math.floor(Math.random() * arrayName.length)];
 };
@@ -85,26 +97,18 @@ const changeElementColor = function (element, input, styleProperty, colorsArray)
 
 const openPopup = function () {
   setupNode.classList.remove(`hidden`);
-
   document.addEventListener(`keydown`, onPopupEscPress);
-
-  Wizard.coat.addEventListener(`click`, function () {
-    changeElementColor(Wizard.coat, Wizard.coatInput, `fill`, COATS_COLORS);
-  });
-
-  Wizard.eyes.addEventListener(`click`, function () {
-    changeElementColor(Wizard.eyes, Wizard.eyesInput, `fill`, EYES_COLORS);
-  });
-
-  Wizard.fireBall.addEventListener(`click`, function () {
-    changeElementColor(Wizard.fireBall, Wizard.fireBallInput, `backgroundColor`, FIREBALL_COLORS);
-  });
+  Wizard.COAT.addEventListener(`click`, onWizardCoatClick);
+  Wizard.EYES.addEventListener(`click`, onWizardEyesClick);
+  Wizard.FIREBALL.addEventListener(`click`, onWizardFireballClick);
 };
 
 const closePopup = function () {
   setupNode.classList.add(`hidden`);
-
   document.removeEventListener(`keydown`, onPopupEscPress);
+  Wizard.COAT.removeEventListener(`click`, onWizardCoatClick);
+  Wizard.EYES.removeEventListener(`click`, onWizardEyesClick);
+  Wizard.FIREBALL.removeEventListener(`click`, onWizardFireballClick);
 };
 
 const showElement = function (element) {
